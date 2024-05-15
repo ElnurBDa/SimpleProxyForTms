@@ -1,14 +1,14 @@
 const http = require('http');
 const httpProxy = require('http-proxy');
 
-const targetHost = '10.33.0.125';
+const targetHost = ''; // change this
 const targetPort = 80;
 
 const proxy = httpProxy.createProxyServer();
 
 const server = http.createServer((req, res) => {
     const target = { target: `http://${targetHost}:${targetPort}` };
-    req.headers.host = 'tms.bhos.local';
+    req.headers.host = ''; // change this
 
     proxy.web(req, res, target, (err) => {
         console.error('Proxy Error:', err);
